@@ -155,6 +155,21 @@
 
     function addToCart(courseId, courseName, instructorId, slug){
 
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            data: {
+                _token: '{{ csrf_token() }}',
+                course_name: courseName,
+                course_name_slug: slug,
+                instructor: instructorId,
+            },
+
+            url: "/store/cart/data"+ courseId,
+            success: function(data){
+                
+            }
+        })
     }
 
 </script>
