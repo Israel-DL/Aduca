@@ -146,3 +146,16 @@
 
 </script>
 {{-- End Load Wishlist Data  --}}
+
+
+
+
+{{-- Start Cart function --}}
+<script type="text/javascript">
+
+    function addToCart(courseId, courseName, instructorId, slug){
+
+    }
+
+</script>
+{{-- End Cart function --}}
