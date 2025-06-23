@@ -51,3 +51,21 @@
 
 </script>
 {{-- End Wishlist Add Option  --}}
+
+
+{{-- Start Load Wishlist Data  --}}
+<script type="text/javascript">
+
+    function wishlist(){
+        $.ajax({
+          type: "GET",
+          dataType: 'json',
+          url: "/get-wishlist-course/",
+          
+          success.function(response){
+            
+          }
+        })
+    }
+</script>
+{{-- End Load Wishlist Data  --}}
