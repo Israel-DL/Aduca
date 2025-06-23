@@ -29,10 +29,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/user/password/update', [UserController::class, 'UserPasswordUpdate'])->name('user.password.update');
 
 
-    //User Wishlist All Route   get-wishlist-course 
+    //User Wishlist All Route  
     Route::controller(WishListController::class)->group(function(){
         Route::get('/user/wishlist', 'AllWishlist')->name('user.wishlist'); 
         Route::get('/get-wishlist-course/', 'GetWishlistCourse');
+        Route::get('/remove-wishlist/{id}', 'RemoveWishlist');
 
     });
 });
