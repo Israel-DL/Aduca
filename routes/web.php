@@ -156,7 +156,7 @@ Route::get('/instructor/details/{id}', [IndexController::class, 'InstructorDetai
 
 Route::post('/add-to-wishlist/{course_id}', [WishListController::class, 'AddToWishList']);
 
-Route::post('/store/cart/data/{course_id}', [CartController::class, 'AddToCart']);
+Route::post('/store/cart/data/{id}', [CartController::class, 'AddToCart']);
 
 
 

@@ -5,32 +5,57 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
-use App\Models\Category;
-use App\Models\SubCategory;
 use App\Models\Course;
-use App\Models\Course_goal;
-use App\Models\CourseSection;
-use App\Models\CourseLecture;
-use Intervention\Image\ImageManager;
-use Intervention\Image\Drivers\Gd\Driver;
-use Illuminate\Support\Facades\Auth;
+
 
 class CartController extends Controller
 {
     //
-    public function AddToCart(Request $request, $course_id){
+    public function AddToCart(Request $request, $id){
 
-        $course = Course::find($course_id);
+        $course = Course::find($id);
 
         //Checks if the course is already in the cart
-        $cartItem = Cart::search(function ($cartItem, $rowId) use ($course_id) {
-            return $cartItem->id === $course_id;
+        $cartItem = Cart::search(function ($cartItem, $rowId) use ($id) {
+            return $cartItem->id === $id;
         });
 
         if ($cartItem->isNotEmpty()){
             return response()->json(['error' => 'Course already in cart' ]);
         }
+
+        if ($course->discount_price == NULL){
+            
+            Cart::add([
+                'id' => $id,
+                'name' => $request->course_name,
+                'qty' => '1',
+                'price' => $course->selling_price,
+                'weight' => 1,
+                'options' => [
+                    'image' => $course->course_image,
+                    'slug' => $request->course_name_slug,
+                    'instructor' => $request->instructor,
+                ],
+            ]);
+
+        }else{
+
+            Cart::add([
+                'id' => $id,
+                'name' => $request->course_name,
+                'qty' => '1',
+                'price' => $course->discount_price,
+                'weight' => 1,
+                'options' => [
+                    'image' => $course->course_image,
+                    'slug' => $request->course_name_slug,
+                    'instructor' => $request->instructor,
+                ],
+            ]);
+        }    
+
+        return response()->json(['success' => 'Course successfully added to cart']);
 
     }//End method
 }
