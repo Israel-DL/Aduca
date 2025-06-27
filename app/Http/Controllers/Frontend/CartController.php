@@ -97,5 +97,19 @@ class CartController extends Controller
     public function MyCart(){
 
         return view('frontend.mycart.view_mycart');
-    }
+    }//End Method
+
+    public function GetMyCart(){
+        
+        $carts = Cart::content();
+        $cartTotal = Cart::total();
+        $cartQty = Cart::count();
+
+        return response()->json(array(
+            'carts' => $carts,
+            'cartTotal' => $cartTotal,
+            'cartQty' => $cartQty,
+        ));
+
+    }//End Method
 }

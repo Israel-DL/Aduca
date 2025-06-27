@@ -287,3 +287,53 @@
 
 </script>
 {{-- End Mini Cart function on Navbar --}}
+
+
+{{-- Start Cart Page function --}}
+<script type="text/javascript">
+    function cart() {
+        $.ajax({
+            type: "GET",
+            url: "/get-my-cart",
+            dataType: "json",
+            success: function(response) {
+
+                $('span[id="cartSubTotal"]').text('₦' + response.cartTotal);
+
+                var rows = "";
+                $.each(response.carts, function(key, value) {
+                    rows += `
+                    <tr>
+                        <th scope="row">
+                            <div class="media media-card">
+                                <a href="/course/details/${value.id}/${value.options.slug}" class="media-img mr-0">
+                                    <img src="/${value.options.image}" alt="Cart image">
+                                </a>
+                            </div>
+                        </th>
+                        <td>
+                            <a href="/course/details/${value.id}/${value.options.slug}" class="text-black font-weight-semi-bold">${value.name}</a>
+                        </td>
+                        <td>
+                            <ul class="generic-list-item font-weight-semi-bold">
+                                <li class="text-black lh-18">₦${value.price}</li>
+                            </ul>
+                        </td>
+
+                        <td>
+                            <button type="button" class="icon-element icon-element-xs shadow-sm border-0" data-toggle="tooltip" data-placement="top" title="Remove">
+                                <i class="la la-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    `;
+                });
+                $('#cartPage').html(rows);
+            }
+        });
+    }
+
+    cart();
+</script>
+
+{{-- End Cart Page function --}}
