@@ -211,7 +211,7 @@
                                     <li>
                                         <p class="shop-cart-btn d-flex align-items-center">
                                             <i class="la la-shopping-cart"></i>
-                                            <span class="product-count">2</span>
+                                            <span class="product-count" id="cartQty">0</span>
                                         </p>
                                         <ul class="cart-dropdown-menu">
 
@@ -219,9 +219,11 @@
 
                                             </div>
 
+                                            <br>
+
                                             <li class="media media-card">
                                                 <div class="media-body fs-16">
-                                                    <p class="text-black font-weight-semi-bold lh-18">Total: <span class="cart-total">$12.99</span> <span class="before-price fs-14">$129.99</span></p>
+                                                    <p class="text-black font-weight-semi-bold lh-18">Total: ₦<span class="cart-total" id="cartSubTotal"></span></p>
                                                 </div>
                                             </li>
                                             <li>

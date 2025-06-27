@@ -214,6 +214,10 @@
 
             success: function(response){
 
+                $('span[id="cartSubTotal"]').text(response.cartTotal);
+
+                $('span[id="cartQty"]').text(response.cartQty);
+
                 var miniCart = ""
 
                 $.each(response.carts, function(key,value){
@@ -223,7 +227,7 @@
                                 <img src="/${value.options.image}" alt="Cart image">
                             </a>
                             <div class="media-body">
-                                <h5><a href="course-details.html">${value.name}</a></h5>
+                                <h5><a href="/course/details/${value.id}/${value.options.slug}">${value.name}</a></h5>
                                 
                                 <span class="d-block fs-14">₦${value.price}</span>
                             </div>
