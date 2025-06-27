@@ -70,7 +70,7 @@ class CartController extends Controller
             'cartTotal' => $cartTotal,
             'cartQty' => $cartQty,
         ));
-    }
+    }//End Method
 
     public function GetMiniCart(){
 
@@ -85,5 +85,12 @@ class CartController extends Controller
         ));
 
 
-    }
+    }//End Method
+
+    public function RemoveMiniCart($rowId){
+
+        Cart::remove($rowId);
+
+        return response()->json(['success' => 'Course removed from cart']);
+    }//End Method
 }

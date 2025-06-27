@@ -22,7 +22,7 @@
                     toast: true,
                     position: 'top-end', 
                     showConfirmButton: false,
-                    timer: 6000 
+                    timer: 3000 
                 })
                   
                 if ($.isEmptyObject(data.error)) {
@@ -118,7 +118,7 @@
                     toast: true,
                     position: 'top-end', 
                     showConfirmButton: false,
-                    timer: 6000 
+                    timer: 3000 
                 })
                   
                 if ($.isEmptyObject(data.error)) {
@@ -167,12 +167,13 @@
 
             url: "/store/cart/data/"+ courseId,
             success: function(data){
+                miniCart();
                 // Start Message 
                 const Toast = Swal.mixin({
                     toast: true,
                     position: 'top-end', 
                     showConfirmButton: false,
-                    timer: 6000 
+                    timer: 3000 
                 })
                   
                 if ($.isEmptyObject(data.error)) {
@@ -230,6 +231,7 @@
                                 <h5><a href="/course/details/${value.id}/${value.options.slug}">${value.name}</a></h5>
                                 
                                 <span class="d-block fs-14">₦${value.price}</span>
+                                <a type="submit" id="${value.rowId}" onclick="removeMiniCart(this.id)"><i class="la la-times"></i></a>
                             </div>
                         </li>
                     `
@@ -239,6 +241,49 @@
         })
     }
     miniCart();
+
+
+
+    /// Remove MiniCart function ///
+    function removeMiniCart(rowId){
+        $.ajax({
+            type: "GET",
+            url: "/remove/cart/course/"+rowId,
+            dataType: "json",
+
+            success: function(data){
+                miniCart();
+                // Start Message 
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end', 
+                    showConfirmButton: false,
+                    timer: 3000 
+                })
+                  
+                if ($.isEmptyObject(data.error)) {
+
+                    Toast.fire({
+                    type: 'success',
+                    icon: 'success',
+                    title: data.success, 
+                })
+
+                }else{
+
+                    Toast.fire({
+                        type: 'error',
+                        icon: 'error',
+                        title: data.error,
+                    })
+                }
+              // End Message 
+            }
+            
+        })
+    }
+    /// End Remove MiniCart function ///
+
 
 </script>
 {{-- End Mini Cart function on Navbar --}}

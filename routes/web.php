@@ -164,6 +164,11 @@ Route::get('/cart/data/', [CartController::class, 'CartData']);
 Route::get('/nav/cart/course/', [CartController::class, 'GetMiniCart']);
 //End///
 
+/// Remove Course from Minicart on the navbar
+Route::get('/remove/cart/course/{rowId}', [CartController::class, 'RemoveMiniCart']);
+//End///
+
+
 
 
 
