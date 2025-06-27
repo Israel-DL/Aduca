@@ -160,6 +160,14 @@ Route::post('/store/cart/data/{id}', [CartController::class, 'AddToCart']);
 
 Route::get('/cart/data/', [CartController::class, 'CartData']);
 
+// Get Data from Minicart on the navbar
+Route::get('/nav/cart/course/', [CartController::class, 'GetMiniCart']);
+//End///
+
+
+
+
+
 
 
 
