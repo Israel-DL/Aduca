@@ -72,11 +72,15 @@ Route::middleware(['auth','roles:admin'])->group(function(){
         Route::get('/delete/subcategory/{id}', 'DeleteSubCategory')->name('delete.subcategory');
     });
 
-    //Instructors All Route   
+    //Admin Instructors All Route
     Route::controller(AdminController::class)->group(function(){
         Route::get('/all/instructor', 'AllInstructor')->name('all.instructor'); 
         Route::post('/update/user/status', 'UpdateUserStatus')->name('update.user.status'); 
+    });
 
+    //Admin Courses All Route    admin.all.courses
+    Route::controller(AdminController::class)->group(function(){
+        Route::get('/admin/all/courses', 'AdminAllCourses')->name('admin.all.courses'); 
     });
 
 });
