@@ -78,9 +78,10 @@ Route::middleware(['auth','roles:admin'])->group(function(){
         Route::post('/update/user/status', 'UpdateUserStatus')->name('update.user.status'); 
     });
 
-    //Admin Courses All Route    admin.all.courses
+    //Admin Courses All Route    update.course.status
     Route::controller(AdminController::class)->group(function(){
         Route::get('/admin/all/courses', 'AdminAllCourses')->name('admin.all.courses'); 
+        Route::post('/update/course/status', 'UpdateCourseStatus')->name('update.course.status'); 
     });
 
 });
