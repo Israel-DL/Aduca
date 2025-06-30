@@ -31,31 +31,35 @@
 						<div class="card">
 							<div class="card-body">
 								<table class="table mb-0">
-									<thead>
-										<tr>
-											<th scope="col">#</th>
-											<th scope="col">First</th>
-											<th scope="col">Last</th>
-											<th scope="col">Handle</th>
-										</tr>
-									</thead>
+
 									<tbody>
 										<tr>
-											<th scope="row">1</th>
-											<td>Mark</td>
-											<td>Otto</td>
-											<td>@mdo</td>
+											<td><strong>Category :</strong></td>
+											<td class="text-primary">{{ $course['category']['category_name'] }}</td>
 										</tr>
 										<tr>
-											<th scope="row">2</th>
-											<td>Jacob</td>
-											<td>Thornton</td>
-											<td>@fat</td>
+											<td><strong>SubCategory :</strong></td>
+											<td class="text-primary">{{ $course['subcategory']['subcategory_name'] }}</td>
 										</tr>
 										<tr>
-											<th scope="row">3</th>
-											<td colspan="2">Larry the Bird</td>
-											<td>@twitter</td>
+											<td><strong>Instructor :</strong></td>
+											<td class="text-primary">{{ $course['user']['name'] }}</td>
+										</tr>
+										<tr>
+											<td><strong>Level :</strong></td>
+											<td class="text-primary">{{ $course->label }}</td>
+										</tr>
+										<tr>
+											<td><strong>Duration :</strong></td>
+											<td class="text-primary">{{ $course->duration }}hrs</td>
+										</tr>
+										<tr>
+											<td><strong>Video :</strong></td>
+											<td>
+											<video width="300" height="200" controls>
+												<source src="{{ asset($course->video) }}" type="video/mp4">
+											</video>
+											</td>
 										</tr>
 									</tbody>
 								</table>
@@ -70,31 +74,34 @@
 						<div class="card">
 							<div class="card-body">
 								<table class="table mb-0">
-									<thead>
-										<tr>
-											<th scope="col">#</th>
-											<th scope="col">First</th>
-											<th scope="col">Last</th>
-											<th scope="col">Handle</th>
-										</tr>
-									</thead>
+
 									<tbody>
 										<tr>
-											<th scope="row">1</th>
-											<td>Mark</td>
-											<td>Otto</td>
-											<td>@mdo</td>
+											<td><strong>Resources :</strong></td>
+											<td class="text-primary">{{ $course->resources }}</td>
 										</tr>
 										<tr>
-											<th scope="row">2</th>
-											<td>Jacob</td>
-											<td>Thornton</td>
-											<td>@fat</td>
+											<td><strong>Certificate :</strong></td>
+											<td class="text-primary">{{ $course->certificate }}</td>
 										</tr>
 										<tr>
-											<th scope="row">3</th>
-											<td colspan="2">Larry the Bird</td>
-											<td>@twitter</td>
+											<td><strong>Selling Price :</strong></td>
+											<td class="text-primary">₦{{ $course->selling_price }}</td>
+										</tr>
+										<tr>
+											<td><strong>Discount Price :</strong></td>
+											<td class="text-primary">₦{{ $course->discount_price }}</td>
+										</tr>
+										<tr>
+											<td><strong>Status :</strong></td>
+											<td class="text-primary">
+												@if ($course->status == 1)
+												<span class="badge bg-success">Active</span>
+												@else
+												<span class="badge bg-danger">Inactive</span>
+												@endif
+
+											</td>
 										</tr>
 									</tbody>
 								</table>
