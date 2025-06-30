@@ -53,7 +53,7 @@
                                         <td>{{$item['category']['category_name']}}</td>
                                         <td>₦{{$item->selling_price}}</td>
                                         <td>
-                                            <a href="" class="btn btn-info px-5"><i class="lni lni-eye"></i></a>
+                                            <a href="{{ route('admin.course.details',$item->id) }}" class="btn btn-info px-5"><i class="lni lni-eye"></i></a>
                                         </td>
 										<td>
                                             <div class="form-check-danger form-check form-switch">
