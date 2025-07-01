@@ -79,16 +79,19 @@ Route::middleware(['auth','roles:admin'])->group(function(){
         Route::post('/update/user/status', 'UpdateUserStatus')->name('update.user.status'); 
     });
 
-    //Admin Courses All Route     admin.all.coupons
+    //Admin Courses All Route   
     Route::controller(AdminController::class)->group(function(){
         Route::get('/admin/all/courses', 'AdminAllCourses')->name('admin.all.courses'); 
         Route::post('/update/course/status', 'UpdateCourseStatus')->name('update.course.status'); 
         Route::get('/admin/course/details/{id}', 'AdminCourseDetails')->name('admin.course.details');
     });
 
-    //Admin Coupon All Route     
+    //Admin Coupon All Route    
     Route::controller(CouponController::class)->group(function(){
         Route::get('/admin/all/coupons', 'AdminAllCoupons')->name('admin.all.coupons');
+        Route::get('/admin/add/coupon', 'AdminAddCoupon')->name('admin.add.coupon');
+        Route::post('/admin/store/coupon', 'AdminStoreCoupon')->name('admin.store.coupon'); 
+
     });
 
 });
