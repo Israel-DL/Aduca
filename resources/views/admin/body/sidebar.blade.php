@@ -61,6 +61,18 @@
 						
 					</ul>
 				</li>
+				<li>
+					<a class="has-arrow" href="javascript:;">
+						<div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+						</div>
+						<div class="menu-title">Manage Coupons</div>
+					</a>
+					<ul>
+						<li> <a href="{{ route('admin.all.coupons') }}"><i class='bx bx-radio-circle'></i>All Coupons</a>
+						</li>
+						
+					</ul>
+				</li>
 				
 				
 				<li class="menu-label">Charts & Maps</li>
