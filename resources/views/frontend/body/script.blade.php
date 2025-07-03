@@ -395,6 +395,10 @@ function applyCoupon(){
         url: "/apply-coupon",
 
         success:function(data){
+
+            if(data.validity == true){
+                $('#couponField').hide();
+            }
             // Start Message 
                 const Toast = Swal.mixin({
                     toast: true,
