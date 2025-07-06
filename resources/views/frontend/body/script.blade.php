@@ -427,5 +427,19 @@ function applyCoupon(){
         }
     })
 }
+
+/// Start Coupon Calculation Method ///
+function couponCalculation(){
+    $.ajax({
+        type: 'GET',
+        url: "/coupon_calculation",
+        dataType: 'json',
+
+        success:function(data){
+            
+        }
+    })
+}
+
 </script>
 {{--End Apply Coupon function --}}

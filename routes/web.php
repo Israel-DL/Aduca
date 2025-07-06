@@ -199,6 +199,8 @@ Route::controller(CartController::class)->group(function(){
 
 Route::post('/apply-coupon', [CartController::class, 'ApplyCoupon']);
 
+Route::get('/coupon_calculation', [CartController::class, 'CouponCalculation']);
+
 
 
 
