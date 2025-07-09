@@ -17,7 +17,6 @@ return new class extends Migration
             $table->integer('user_id')->nullable();
             $table->integer('course_id')->nullable();
             $table->integer('instructor_id')->nullable();
-            $table->string('image')->nullable();
             $table->string('course_title')->nullable();
             $table->integer('price')->nullable();
             $table->timestamps();

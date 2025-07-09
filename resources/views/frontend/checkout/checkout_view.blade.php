@@ -35,7 +35,7 @@
                     <div class="card-body">
                         <h3 class="card-title fs-22 pb-3">Billing Details</h3>
                         <div class="divider"><span></span></div>
-                        <form method="post" class="row" action="" enctype="multipart/form-data">
+                        <form method="post" class="row" action="{{ route('payment') }}" enctype="multipart/form-data">
                             @csrf
 
 
