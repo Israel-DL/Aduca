@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\OrderConfirm;
 use App\Models\Coupon;
 use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 use App\Models\Payment;
@@ -265,10 +267,20 @@ class CartController extends Controller
 
         $request->session()->forget('cart');
 
-        $paymentId = $data->id;
+        
 
         //Start Send Email to student after purchasing course
-        
+        $paymentId = $data->id;
+        $sendmail = Payment::find($paymentId);
+
+        $data = [
+            'invoice_no' => $sendmail->invoice_no,
+            'amount' => $total_amount,
+            'name' => $sendmail->name,
+            'email' => $sendmail->email,
+        ];
+
+        Mail::to($request->email)->send(new OrderConfirm($data));
         //End Send Email to student after purchasing course
 
 
