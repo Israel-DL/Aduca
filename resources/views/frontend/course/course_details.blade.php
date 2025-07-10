@@ -167,7 +167,7 @@
                                         <span class="fs-15 text-gray font-weight-medium">{{ count($lecture) }} lectures</span>
                                     </button>
                                 </div><!-- end card-header -->
-                                <div id="collapse{{$sec->id}}" class="collapse show" aria-labelledby="heading{{$sec->id}}" data-parent="#accordion">
+                                <div id="collapse{{$sec->id}}" class="collapse" aria-labelledby="heading{{$sec->id}}" data-parent="#accordion">
                                     <div class="card-body">
                                         <ul class="generic-list-item">
                                           @foreach ($lecture as $lect)
