@@ -265,6 +265,13 @@ class CartController extends Controller
 
         $request->session()->forget('cart');
 
+        $paymentId = $data->id;
+
+        //Start Send Email to student after purchasing course
+        
+        //End Send Email to student after purchasing course
+
+
         if ($request->cash_delivery == 'stripe'){
             echo "stripe";
         }else {
