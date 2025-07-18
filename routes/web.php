@@ -12,6 +12,7 @@ use App\Http\Controllers\Frontend\WishListController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\OrderController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -102,9 +103,12 @@ Route::middleware(['auth','roles:admin'])->group(function(){
     Route::controller(SettingController::class)->group(function(){
         Route::get('/smtp/setting', 'SmtpSetting')->name('smtp.setting');
         Route::post('/update/smtp', 'UpdateSmtp')->name('update.smtp');
+    });
 
 
-
+    //Admin Order Settings All Route   
+    Route::controller(OrderController::class)->group(function(){
+        Route::get('/admin/pending/orders', 'AdminPendingOrders')->name('admin.pending.orders');
     });
 
     
