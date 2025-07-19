@@ -109,6 +109,7 @@ Route::middleware(['auth','roles:admin'])->group(function(){
     //Admin Order Settings All Route   
     Route::controller(OrderController::class)->group(function(){
         Route::get('/admin/pending/orders', 'AdminPendingOrders')->name('admin.pending.orders');
+        Route::get('/admin/order/details/{id}', 'AdminOrderDetails')->name('admin.order.details');
     });
 
     
