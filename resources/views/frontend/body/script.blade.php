@@ -354,7 +354,7 @@
             dataType: "json",
             success: function(response) {
 
-                $('span[id="cartSubTotal"]').text('₦' + response.cartTotal);
+                $('span[id="cartSubTotal"]').text(response.cartTotal);
 
                 var rows = "";
                 $.each(response.carts, function(key, value) {
