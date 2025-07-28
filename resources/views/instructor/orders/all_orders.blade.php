@@ -51,7 +51,7 @@
                                         <td> <span class="badge bg-info">{{ $item['payment']['status'] }}</span></td>
 										<td>
                                             <a href="{{ route('instructor.order.details',$item->payment->id) }}" class="btn btn-info" title="Order Details"><i class="lni lni-eye"></i></a>
-                                            <a href="{{ route('instructor.order.invoice', $item->payment->id) }}" class="btn btn-danger" id="delete" title="Download Order Invoice"><i class="lni lni-download"></i></a>
+                                            <a href="{{ route('instructor.order.invoice', $item->payment->id) }}" class="btn btn-danger" title="Download Order Invoice"><i class="lni lni-download"></i></a>
                                         </td>
 										
 									</tr>
