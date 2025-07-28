@@ -23,4 +23,15 @@ class OrderController extends Controller
 
         return view('admin.backend.orders.admin_order_details', compact('payment', 'orderItems'));
     }
+
+    public function AdminConfirmPendingOrder($payment_id){
+
+        Payment::find($payment_id)->update(['status' => 'confirmed']);
+
+        $notification = array(
+            'message' => 'Order Confirmed Successfully!',
+            'alert-type' => 'success',
+        );
+        return redirect()->back()->with($notification);  
+    }
 }
