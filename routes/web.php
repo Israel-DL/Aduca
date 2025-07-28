@@ -40,6 +40,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/remove-wishlist/{id}', 'RemoveWishlist');
 
     });
+
+    
+    //User Wishlist All Route  my.course
+    Route::controller(OrderController::class)->group(function(){
+        Route::get('/my/course', 'MyCourse')->name('my.course'); 
+
+
+    });
 });
 
 require __DIR__.'/auth.php';

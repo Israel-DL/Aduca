@@ -74,4 +74,16 @@ class OrderController extends Controller
         ]);
         return $pdf->download('invoice.pdf');
     }
+
+    public function MyCourse(){
+
+        $id = Auth::user()->id;
+
+        $latestOrders = Order::where('user_id',$id)->select('course_id', \DB::raw('MAX(id) as max_id'))->groupBy('course_id');
+        $mycourse = Order::joinSub($latestOrders, 'latest_order', function($join) {
+            $join->on('orders.id', '=', 'latest_order.max_id');
+        })->orderBy('latest_order.max_id', 'DESC')->get();
+
+        return view('frontend.mycourse.all_my_course', compact('mycourse'));
+    }
 }
