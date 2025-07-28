@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Payment;
+use Illuminate\Support\Facades\Auth;
+use League\CommonMark\Node\Query\OrExpr;
 
 class OrderController extends Controller
 {
@@ -39,5 +41,21 @@ class OrderController extends Controller
 
         $payment = Payment::where('status', 'confirmed')->orderBy('id', 'DESC')->get();
         return view('admin.backend.orders.confirmed_orders', compact('payment'));
+    }
+
+    public function InstructorAllOrders(){
+
+        $id = Auth::user()->id;
+        $orderItems = Order::where('instructor_id', $id)->orderBy('id','desc')->get();
+
+        return view('instructor.orders.all_orders', compact('orderItems'));
+    }
+
+    public function InstructorOrderDetails($payment_id){
+
+        $payment = Payment::where('id', $payment_id)->first();
+        $orderItems = Order::where('payment_id', $payment_id)->orderBy('id', 'DESC')->get();
+
+        return view('instructor.orders.instructor_order_details', compact('payment', 'orderItems'));
     }
 }

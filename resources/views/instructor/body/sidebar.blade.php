@@ -34,7 +34,7 @@
 
 				@if ($status === '1')
 				
-				<li class="menu-label">Manage Courses</li>
+				<li class="menu-label">Instrctor Menu</li>
 				
 				<li>
 					<a href="javascript:;" class="has-arrow">
@@ -45,10 +45,24 @@
 					<ul>
 						<li> <a href="{{ route('all.course') }}"><i class='bx bx-radio-circle'></i>All Courses</a>
 						</li>
-						<li> <a href="ecommerce-products-details.html"><i class='bx bx-radio-circle'></i>Product Details</a>
-						</li>
+						
 					</ul>
 				</li>
+
+
+				<li>
+					<a class="has-arrow" href="javascript:;">
+						<div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+						</div>
+						<div class="menu-title">Manage Orders</div>
+					</a>
+					<ul>
+						<li> <a href="{{ route('instructor.all.orders') }}"><i class='bx bx-radio-circle'></i>All Orders</a>
+						</li>
+						
+					</ul>
+				</li>
+
 				<li>
 					<a class="has-arrow" href="javascript:;">
 						<div class="parent-icon"><i class='bx bx-bookmark-heart'></i>

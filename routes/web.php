@@ -106,7 +106,7 @@ Route::middleware(['auth','roles:admin'])->group(function(){
     });
 
 
-    //Admin Order Settings All Route   
+    //Admin Order All Route   
     Route::controller(OrderController::class)->group(function(){
         Route::get('/admin/pending/orders', 'AdminPendingOrders')->name('admin.pending.orders');
         Route::get('/admin/order/details/{id}', 'AdminOrderDetails')->name('admin.order.details');
@@ -174,6 +174,13 @@ Route::middleware(['auth','roles:instructor'])->group(function(){
 
         Route::post('/delete/section/{id}', 'DeleteSection')->name('delete.section'); 
         
+    });
+
+
+    //Instructor Order All Route    
+    Route::controller(OrderController::class)->group(function(){
+        Route::get('/instructor/all/orders', 'InstructorAllOrders')->name('instructor.all.orders');
+        Route::get('/instructor/order/details/{payment_id}', 'InstructorOrderDetails')->name('instructor.order.details');
     });
     
 
