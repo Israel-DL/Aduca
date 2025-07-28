@@ -167,6 +167,10 @@
                                                         </td>
                                                     </tr>
 
+													@php
+														$total_price = 0;
+													@endphp
+
                                                     @foreach ($orderItems as $item)
                                                     <tr>
                                                         <td class="col-md-1">
@@ -185,7 +189,19 @@
                                                             <label>₦{{ $item->price }}</label>
                                                         </td>
                                                     </tr>    
+
+													@php
+														$total_price += $item->price;
+													@endphp
+
                                                     @endforeach
+
+													<tr>
+														<td colspan="4"></td>
+														<td class="col-md-3">
+															<strong>Total Price : ₦{{ $total_price }}</strong>
+														</td>
+													</tr>
                                                     
                                                 </tbody>
                                             </table>
