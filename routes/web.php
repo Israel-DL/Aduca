@@ -111,6 +111,7 @@ Route::middleware(['auth','roles:admin'])->group(function(){
         Route::get('/admin/pending/orders', 'AdminPendingOrders')->name('admin.pending.orders');
         Route::get('/admin/order/details/{id}', 'AdminOrderDetails')->name('admin.order.details');
         Route::get('/admin/confirm/pending/order/{id}', 'AdminConfirmPendingOrder')->name('admin.confirm-pending-order');
+        Route::get('/admin/confirmed/orders', 'AdminConfirmedOrders')->name('admin.confirmed.orders');
     });
 
     

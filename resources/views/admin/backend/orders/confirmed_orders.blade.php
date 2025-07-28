@@ -12,7 +12,7 @@
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">All Pending Orders</li>
+								<li class="breadcrumb-item active" aria-current="page">All Confirmed Orders</li>
 							</ol>
 						</nav>
 					</div>
@@ -49,7 +49,7 @@
 										<td>{{$item->invoice_no}}</td>
                                         <td>₦{{$item->total_amount}}</td>
                                         <td>{{$item->payment_type}}</td>
-                                        <td><span class="badge rounded-pill bg-warning">{{$item->status}}</span></td>
+                                        <td><span class="badge rounded-pill bg-success">{{$item->status}}</span></td>
 										<td>
                                             <a href="{{ route('admin.order.details',$item->id) }}" class="btn btn-info px-5">Details</a>
                                         </td>
