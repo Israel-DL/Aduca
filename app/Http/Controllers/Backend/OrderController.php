@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\Payment;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\CourseSection;
 
 class OrderController extends Controller
 {
@@ -85,5 +86,14 @@ class OrderController extends Controller
         })->orderBy('latest_order.max_id', 'DESC')->get();
 
         return view('frontend.mycourse.all_my_course', compact('mycourse'));
+    }
+
+    public function CourseView($course_id){
+        $id = Auth::user()->id;
+
+        $course = Order::where('course_id', $course_id)->where('user_id', $id)->first();
+        $section = CourseSection::where('couse_id', $course_id)->orderBy('id','asc')->get();
+
+        return view('frontend.mycourse.course_view', compact('course', 'section'));
     }
 }
