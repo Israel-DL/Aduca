@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Payment;
 use Illuminate\Support\Facades\Auth;
-use League\CommonMark\Node\Query\OrExpr;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class OrderController extends Controller
 {
@@ -57,5 +57,17 @@ class OrderController extends Controller
         $orderItems = Order::where('payment_id', $payment_id)->orderBy('id', 'DESC')->get();
 
         return view('instructor.orders.instructor_order_details', compact('payment', 'orderItems'));
+    }
+
+    public function InstructorOrderInvoice($payment_id){
+
+        $payment = Payment::where('id', $payment_id)->first();
+        $orderItems = Order::where('payment_id', $payment_id)->orderBy('id', 'DESC')->get();
+
+        $pdf = Pdf::loadView('instructor.orders.order_pdf', compact('payment','orderItems'))->setPaper('a4')->setOption([
+            'tempDir' => public_path(),
+            'chroot' => public_path(),
+        ]);
+        return $pdf->download('invoice.pdf');
     }
 }
