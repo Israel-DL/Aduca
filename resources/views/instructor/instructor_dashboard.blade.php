@@ -35,7 +35,7 @@
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
-	<script src="https://cdn.tiny.cloud/1/g8h4e0vcwmgbwqgky5uib09vca5luj6ns027wba6e11goojc/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+	{{-- <script src="https://cdn.tiny.cloud/1/g8h4e0vcwmgbwqgky5uib09vca5luj6ns027wba6e11goojc/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script> --}}
 
 	<title>Instructor Dashboard</title>
 </head>
@@ -129,7 +129,7 @@
  @endif 
 </script>
 
-<script>
+{{-- <script>
 	tinymce.init({
 	  selector: 'textarea',
 	  plugins: [
@@ -150,7 +150,7 @@
 	  ],
 	  ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
 	});
-  </script>
+  </script> --}}
 
 
 
