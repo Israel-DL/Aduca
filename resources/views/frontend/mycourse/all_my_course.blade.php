@@ -18,7 +18,7 @@
                     </div><!-- end card-image -->
                     <div class="card-body">
                         <h6 class="ribbon ribbon-blue-bg fs-14 mb-3">{{ $item->course->label }}</h6>
-                        <h5 class="card-title"><a href="{{ route('course.view', $item->course_id) }}">{{ $item->course->course_title }}</a></h5>
+                        <h5 class="card-title"><a href="{{ route('course.view', $item->course_id) }}">{{ $item->course->course_name }}</a></h5>
                         <p class="card-text"><a href="teacher-detail.html"> By {{ $item->course->user->name }}</a></p>
                         <div class="rating-wrap d-flex align-items-center py-2">
                             <div class="review-stars">
