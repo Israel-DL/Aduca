@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\OrderController;
+use App\Http\Controllers\Backend\QuestionController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -42,11 +43,15 @@ Route::middleware('auth')->group(function () {
     });
 
     
-    //User Wishlist All Route 
+    //User "My-Course" Route 
     Route::controller(OrderController::class)->group(function(){
         Route::get('/my/course', 'MyCourse')->name('my.course');
         Route::get('/course/view/{course_id}', 'CourseView')->name('course.view'); 
+    });
 
+    //User Course-Questions Route 
+    Route::controller(QuestionController::class)->group(function(){
+        Route::post('/user/question', 'UserQuestion')->name('user.question'); 
     });
 });
 

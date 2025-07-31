@@ -359,13 +359,21 @@
                                         <div class="new-question-body pt-40px">
                                             <h3 class="fs-20 font-weight-semi-bold">My question relates to</h3>
 
-                                            <form action="#" class="pt-4">
+                                            <form action="#" class="pt-4" method="post" action="{{ route('user.question') }}">
+                                                @csrf
+                                                
+                                                <input type="text" name="course_id" value="{{ $course->course_id }}" hidden>
+
+                                                <input type="text" name="instructor_id" value="{{ $course->instructor_id }}" hidden>
+
+                                                
+
                                                 <div class="custom-control-wrap">
                                                     <div class="custom-control custom-radio mb-3 pl-0">
-                                                        <input type="text" name="" class="form-control form--control pl-3" placeholder="Subject of your question">
+                                                        <input type="subject" name="subject" class="form-control form--control pl-3" placeholder="Subject of your question">
                                                     </div>
                                                     <div class="custom-control custom-radio mb-3 pl-0">
-                                                        <textarea name="message" class="form-control form--control pl-3" rows="4" placeholder="Write your question..."></textarea>
+                                                        <textarea name="question" class="form-control form--control pl-3" rows="4" placeholder="Write your question..."></textarea>
                                                     </div>
                                                     
                                                 </div>
