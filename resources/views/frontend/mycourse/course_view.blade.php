@@ -359,7 +359,7 @@
                                         <div class="new-question-body pt-40px">
                                             <h3 class="fs-20 font-weight-semi-bold">My question relates to</h3>
 
-                                            <form action="#" class="pt-4" method="post" action="{{ route('user.question') }}">
+                                            <form class="pt-4" method="post" action="{{ route('user.question') }}">
                                                 @csrf
                                                 
                                                 <input type="text" name="course_id" value="{{ $course->course_id }}" hidden>
