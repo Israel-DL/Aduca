@@ -43,7 +43,7 @@
 													</div>
 													<div class="flex-grow-1 ms-2">
 														<h6 class="mb-0 chat-title">{{ $question['user']['name'] }}</h6>
-														<p class="mb-0 chat-msg">Student</p>
+														<p class="mb-0 chat-msg text-primary">{{ $question->subject }}</p>
 													</div>
 													<div class="chat-time">{{ Carbon\Carbon::parse($question->created_at)->diffForHumans() }}</div>
 												</div>
@@ -58,43 +58,56 @@
 					<div class="chat-header d-flex align-items-center">
 						<div class="chat-toggle-btn"><i class='bx bx-menu-alt-left'></i>
 						</div>
-						<h5 class="text-primary">{{ $question['course']['course_name'] }}</h5>
-						<div class="chat-top-header-menu ms-auto"> <a href="javascript:;"><i class='bx bx-video'></i></a>
-							<a href="javascript:;"><i class='bx bx-phone'></i></a>
-							<a href="javascript:;"><i class='bx bx-user-plus'></i></a>
-						</div>
+						<h5 class="text-primary">Course Name: {{ $question['course']['course_name'] }}</h5>
+						
 					</div>
 					<div class="chat-content">
 						<div class="chat-content-leftside">
 							<div class="d-flex">
 								<img src="{{ (!empty($question->user->photo)) ? url('upload/user_images/'.$question->user->photo) : url('upload/no_image.jpg')}}" width="48" height="48" class="rounded-circle" alt="" />
 								<div class="flex-grow-1 ms-2">
-									<p class="mb-0 chat-time"><strong class="text-primary">{{ $question->subject }}</strong>, {{ Carbon\Carbon::parse($question->created_at)->diffForHumans() }}</p>
+									<p class="mb-0 chat-time"><strong class="text-primary">Student</strong>, {{ Carbon\Carbon::parse($question->created_at)->diffForHumans() }}</p>
 									<p class="chat-left-msg">{{ $question->question }}</p>
 								</div>
 							</div>
 						</div>
-						<div class="chat-content-rightside">
+
+                        @foreach ($reply as $rep)
+                        <div class="chat-content-rightside">
 							<div class="d-flex ms-auto">
 								<div class="flex-grow-1 me-2">
-									<p class="mb-0 chat-time text-end">you, 2:37 PM</p>
-									<p class="chat-right-msg">I am in USA</p>
+									<p class="mb-0 chat-time text-end"><strong class="text-primary">you</strong>, {{ Carbon\Carbon::parse($rep->created_at)->diffForHumans() }}</p>
+									<p class="chat-right-msg">{{ $rep->question }}</p>
 								</div>
 							</div>
-						</div>
+						</div>    
+                        @endforeach
+						
 					</div>
+
+                    <form action="{{ route('instructor.question.reply') }}" method="POST">
+
+                        @csrf
+                        <input type="hidden" name="qid" value="{{ $question->id }}">
+                        <input type="hidden" name="course_id" value="{{ $question->course->id }}">
+                        <input type="hidden" name="user_id" value="{{ $question->user->id }}">
+                        <input type="hidden" name="instructor_id" value="{{ $profileData->id }}">
+
 					<div class="chat-footer d-flex align-items-center">
 						<div class="flex-grow-1 pe-2">
 							<div class="input-group">	<span class="input-group-text"><i class='bx bx-smile'></i></span>
-								<input type="text" class="form-control" placeholder="Type a message">
+								<input type="text" name="question" class="form-control" placeholder="Type a message">
 							</div>
 						</div>
-						<div class="chat-footer-menu"> <a href="javascript:;"><i class='bx bx-file'></i></a>
+						<div class="chat-footer-menu">
+                            <button type="submit"><i class="lni lni-reply"></i> Send </button>
 							<a href="javascript:;"><i class='bx bxs-contact'></i></a>
 							<a href="javascript:;"><i class='bx bx-microphone'></i></a>
 							<a href="javascript:;"><i class='bx bx-dots-horizontal-rounded'></i></a>
 						</div>
 					</div>
+                    </form>
+
 					<!--start chat overlay-->
 					<div class="overlay chat-toggle-btn-mobile"></div>
 					<!--end chat overlay-->

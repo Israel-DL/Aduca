@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Question;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Payment;
@@ -93,7 +94,8 @@ class OrderController extends Controller
 
         $course = Order::where('course_id', $course_id)->where('user_id', $id)->first();
         $section = CourseSection::where('course_id', $course_id)->orderBy('id','asc')->get();
+        $allquestion = Question::latest()->get();
 
-        return view('frontend.mycourse.course_view', compact('course', 'section'));
+        return view('frontend.mycourse.course_view', compact('course', 'section', 'allquestion'));
     }
 }

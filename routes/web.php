@@ -201,6 +201,7 @@ Route::middleware(['auth','roles:instructor'])->group(function(){
     Route::controller(QuestionController::class)->group(function(){
         Route::get('/instructor/all/question', 'InstructorAllQuestion')->name('instructor.all.question');
         Route::get('/instructor/question/detail/{id}', 'InstructorQuestionDetails')->name('instructor.question.details');
+        Route::post('/instructor/question/reply', 'InstructorQuestionReplay')->name('instructor.question.reply');
     });
     
 
