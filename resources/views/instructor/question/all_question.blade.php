@@ -46,7 +46,7 @@
 										<td>{{ $item['course']['course_name'] }}</td>
 										<td><strong>{{ $item->subject }}</strong></td>
                                         <td>{{ $item['user']['name'] }}</td>
-                                        <td>{{ Carbon\Carbon::parse($item->created_at)->diffForHumans()  }}</td>
+                                        <td>{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</td>
 										<td>
                                             <a href="{{ route('instructor.question.details', $item->id) }}" class="btn btn-info" title="Order Details"><i class="lni lni-eye"></i></a>
                                         </td>
