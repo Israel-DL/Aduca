@@ -51,7 +51,7 @@
                                         <td>{{$item->course_name}}</td>
                                         <td>{{$item['user']['name']}}</td>
                                         <td>{{$item['category']['category_name']}}</td>
-                                        <td>₦{{$item->selling_price}}</td>
+                                        <td>${{$item->selling_price}}</td>
                                         <td>
                                             <a href="{{ route('admin.course.details',$item->id) }}" class="btn btn-info px-5"><i class="lni lni-eye"></i></a>
                                         </td>

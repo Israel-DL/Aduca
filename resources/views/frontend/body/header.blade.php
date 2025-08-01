@@ -223,7 +223,7 @@
 
                                             <li class="media media-card">
                                                 <div class="media-body fs-16">
-                                                    <p class="text-black font-weight-semi-bold lh-18">Total: ₦<span class="cart-total" id="cartSubTotal"></span></p>
+                                                    <p class="text-black font-weight-semi-bold lh-18">Total: $<span class="cart-total" id="cartSubTotal"></span></p>
                                                 </div>
                                             </li>
                                             <li>

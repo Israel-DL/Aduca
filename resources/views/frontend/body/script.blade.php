@@ -85,8 +85,8 @@
                             <div class="d-flex justify-content-between align-items-center">
 
                                 ${value.course.discount_price == null  
-                                ?`<p class="card-price text-black font-weight-bold"> ₦${value.course.selling_price} </p>`
-                                :`<p class="card-price text-black font-weight-bold">₦${value.course.discount_price} <span class="before-price font-weight-medium">₦${value.course.selling_price}</span></p>` 
+                                ?`<p class="card-price text-black font-weight-bold"> $${value.course.selling_price} </p>`
+                                :`<p class="card-price text-black font-weight-bold">$${value.course.discount_price} <span class="before-price font-weight-medium">$${value.course.selling_price}</span></p>` 
                                 }
                                 <div class="icon-element icon-element-sm shadow-sm cursor-pointer" data-toggle="tooltip" data-placement="top" title="Remove from Wishlist" id="${value.id}" onclick="RemoveWishlist(this.id)"><i class="la la-heart"></i></div>
                             </div>
@@ -286,7 +286,7 @@
                             <div class="media-body">
                                 <h5><a href="/course/details/${value.id}/${value.options.slug}">${value.name}</a></h5>
                                 
-                                <span class="d-block fs-14">₦${value.price}</span>
+                                <span class="d-block fs-14">$${value.price}</span>
                                 <a type="submit" id="${value.rowId}" onclick="removeMiniCart(this.id)"><i class="la la-times"></i></a>
                             </div>
                         </li>
@@ -372,7 +372,7 @@
                         </td>
                         <td>
                             <ul class="generic-list-item font-weight-semi-bold">
-                                <li class="text-black lh-18">₦${value.price}</li>
+                                <li class="text-black lh-18">$${value.price}</li>
                             </ul>
                         </td>
 
@@ -506,11 +506,11 @@ function applyCoupon(){
                 <ul class="generic-list-item pb-4">
                     <li class="d-flex align-items-center justify-content-between font-weight-semi-bold">
                         <span class="text-black">Subtotal:</span>
-                        <span>₦${data.total}</span>
+                        <span>$${data.total}</span>
                     </li>
                     <li class="d-flex align-items-center justify-content-between font-weight-semi-bold">
                         <span class="text-black">Total:</span>
-                        <span>₦${data.total}</span>
+                        <span>$${data.total}</span>
                     </li>
                 </ul>
                     `
@@ -523,7 +523,7 @@ function applyCoupon(){
                 <ul class="generic-list-item pb-4">
                     <li class="d-flex align-items-center justify-content-between font-weight-semi-bold">
                         <span class="text-black">Subtotal:</span>
-                        <span>₦${data.subtotal}</span>
+                        <span>$${data.subtotal}</span>
                     </li>
                     <li class="d-flex align-items-center justify-content-between font-weight-semi-bold">
                         <span class="text-black">Coupon Code : </span>
@@ -531,11 +531,11 @@ function applyCoupon(){
                     </li>
                     <li class="d-flex align-items-center justify-content-between font-weight-semi-bold">
                         <span class="text-black">Coupon Discount:</span>
-                        <span>₦${data.discount_amount}</span>
+                        <span>$${data.discount_amount}</span>
                     </li>
                     <li class="d-flex align-items-center justify-content-between font-weight-semi-bold">
                         <span class="text-black">Grand Total:</span>
-                        <span>₦${data.total_amount}</span>
+                        <span>$${data.total_amount}</span>
                     </li>
                 </ul>
                     `

@@ -86,11 +86,11 @@
 										</tr>
 										<tr>
 											<td><strong>Selling Price :</strong></td>
-											<td class="text-primary">₦{{ $course->selling_price }}</td>
+											<td class="text-primary">${{ $course->selling_price }}</td>
 										</tr>
 										<tr>
 											<td><strong>Discount Price :</strong></td>
-											<td class="text-primary">₦{{ $course->discount_price }}</td>
+											<td class="text-primary">${{ $course->discount_price }}</td>
 										</tr>
 										<tr>
 											<td><strong>Status :</strong></td>

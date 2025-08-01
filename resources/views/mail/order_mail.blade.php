@@ -383,7 +383,7 @@
 
 
 <h3>Invoice : {{ $order['invoice_no'] }}</h3>
-<h3>Amount : ₦{{ $order['amount'] }}</h3>
+<h3>Amount : ${{ $order['amount'] }}</h3>
 <h3>Name : {{ $order['name'] }}</h3>
 <h3>Email : {{ $order['email'] }}</h3>
 

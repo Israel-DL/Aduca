@@ -46,7 +46,7 @@
 										<td>{{ $key+1 }}</td>
 										<td>{{ $item['payment']['order_date'] }}</td>
 										<td>{{ $item['payment']['invoice_no'] }}</td>
-                                        <td>₦{{ $item['payment']['total_amount'] }}</td>
+                                        <td>${{ $item['payment']['total_amount'] }}</td>
                                         <td>{{ $item['payment']['payment_type'] }}</td>
                                         <td> <span class="badge bg-info">{{ $item['payment']['status'] }}</span></td>
 										<td>

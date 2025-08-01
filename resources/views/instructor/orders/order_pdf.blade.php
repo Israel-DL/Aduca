@@ -114,7 +114,7 @@
             <img src="{{ public_path($item->course->course_image) }}" height="60px;" width="60px;" alt="">
         </td>
         <td align="center">{{ $item->course->course_name }}</td>
-        <td align="center">₦{{ $item->price }}</td>
+        <td align="center">${{ $item->price }}</td>
         <td align="center">price Tk</td>
       </tr>
       @endforeach
@@ -125,8 +125,8 @@
   <table width="100%" style=" padding:0 10px 0 10px;">
     <tr>
         <td align="right" >
-            <h2><span style="color: #EC5252;">Subtotal:</span> ₦{{ $payment->total_amount }}</h2>
-            <h2><span style="color: #EC5252;">Total:</span> ₦{{ $payment->total_amount }}</h2>
+            <h2><span style="color: #EC5252;">Subtotal:</span> ${{ $payment->total_amount }}</h2>
+            <h2><span style="color: #EC5252;">Total:</span> ${{ $payment->total_amount }}</h2>
             {{-- <h2><span style="color: #EC5252;">Full Payment PAID</h2> --}}
         </td>
     </tr>

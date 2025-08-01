@@ -339,9 +339,9 @@
                                 <div class="d-flex justify-content-between align-items-center">
 
                                     @if ($course->discount_price == NULL)
-                                    <p class="card-price text-black font-weight-bold">₦{{ $course->selling_price }}</p>
+                                    <p class="card-price text-black font-weight-bold">${{ $course->selling_price }}</p>
                                     @else
-                                    <p class="card-price text-black font-weight-bold">₦{{ $course->discount_price }} <span class="before-price font-weight-medium">₦{{ $course->selling_price }}</span></p>
+                                    <p class="card-price text-black font-weight-bold">${{ $course->discount_price }} <span class="before-price font-weight-medium">${{ $course->selling_price }}</span></p>
                                     @endif
 
                                     <div class="icon-element icon-element-sm shadow-sm cursor-pointer" title="Add to Wishlist"><i class="la la-heart-o"></i></div>

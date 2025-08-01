@@ -46,7 +46,7 @@
                             </li>
                         </ul>
                         <div class="d-flex justify-content-between align-items-center">
-                            <p class="card-price text-black font-weight-bold">₦{{ $item->course->selling_price }}</p>
+                            <p class="card-price text-black font-weight-bold">${{ $item->course->selling_price }}</p>
                             <div class="card-action-wrap pl-3">
                                 <a href="course-details.html" class="icon-element icon-element-sm shadow-sm cursor-pointer ml-1 text-success" data-toggle="tooltip" data-placement="top" data-title="View"><i class="la la-eye"></i></a>
                                 <div class="icon-element icon-element-sm shadow-sm cursor-pointer ml-1 text-secondary" data-toggle="tooltip" data-placement="top" data-title="Edit"><i class="la la-edit"></i></div>

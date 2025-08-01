@@ -489,10 +489,10 @@
                             <div class="preview-course-feature-content pt-40px">
                                 <p class="d-flex align-items-center pb-2">
                                     @if ($course->discount_price == NULL)
-                                    <span class="fs-35 font-weight-semi-bold text-black">₦{{ $course->discount_price }}</span>
+                                    <span class="fs-35 font-weight-semi-bold text-black">${{ $course->discount_price }}</span>
                                     @else
-                                    <span class="fs-35 font-weight-semi-bold text-black">₦{{ $course->discount_price }}</span>
-                                    <span class="before-price mx-1">₦{{ $course->selling_price }}</span>
+                                    <span class="fs-35 font-weight-semi-bold text-black">${{ $course->discount_price }}</span>
+                                    <span class="before-price mx-1">${{ $course->selling_price }}</span>
                                     @endif
                                     
                                     <span class="price-discount">{{ round($discount) }}% off</span>
@@ -570,9 +570,9 @@
 
 
                                     @if ($related->discount_price == NULL)
-                                    <p class="card-price text-black font-weight-bold">₦{{ $course->selling_price }}</p>
+                                    <p class="card-price text-black font-weight-bold">${{ $course->selling_price }}</p>
                                     @else
-                                    <p class="card-price text-black font-weight-bold">₦{{ $course->discount_price }} <span class="before-price font-weight-medium">₦{{ $course->selling_price }}</span></p>
+                                    <p class="card-price text-black font-weight-bold">${{ $course->discount_price }} <span class="before-price font-weight-medium">${{ $course->selling_price }}</span></p>
                                     @endif
 
                                 </div>
@@ -645,9 +645,9 @@
                         </div><!-- end rating-wrap -->
                         <div class="d-flex justify-content-between align-items-center">
                             @if ($inscourse->discount_price == NULL)
-                            <p class="card-price text-black font-weight-bold">₦{{ $inscourse->selling_price }}</p>
+                            <p class="card-price text-black font-weight-bold">${{ $inscourse->selling_price }}</p>
                             @else
-                            <p class="card-price text-black font-weight-bold">₦{{ $inscourse->discount_price }} <span class="before-price font-weight-medium">₦{{ $inscourse->selling_price }}</span></p>
+                            <p class="card-price text-black font-weight-bold">${{ $inscourse->discount_price }} <span class="before-price font-weight-medium">${{ $inscourse->selling_price }}</span></p>
                             @endif
                             <div class="icon-element icon-element-sm shadow-sm cursor-pointer" title="Add to Wishlist"><i class="la la-heart-o"></i></div>
                         </div>

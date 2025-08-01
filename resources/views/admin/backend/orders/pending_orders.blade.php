@@ -47,7 +47,7 @@
 										<td>{{ $key+1 }}</td>
 										<td>{{$item->order_date}}</td>
 										<td>{{$item->invoice_no}}</td>
-                                        <td>₦{{$item->total_amount}}</td>
+                                        <td>${{$item->total_amount}}</td>
                                         <td>{{$item->payment_type}}</td>
                                         <td><span class="badge rounded-pill bg-warning">{{$item->status}}</span></td>
 										<td>

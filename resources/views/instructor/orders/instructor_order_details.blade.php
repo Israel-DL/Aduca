@@ -86,7 +86,7 @@
 												<h6 class="mb-0">Total Amount</h6>
 											</div>
 											<div class="col-sm-9 text-secondary">
-												<strong>₦{{ $payment->total_amount }}</strong>
+												<strong>${{ $payment->total_amount }}</strong>
 											</div>
 										</div>
 
@@ -186,7 +186,7 @@
                                                             <label>{{ $item->instructor->name }}</label>
                                                         </td>
                                                         <td class="col-md-2">
-                                                            <label>₦{{ $item->price }}</label>
+                                                            <label>${{ $item->price }}</label>
                                                         </td>
                                                     </tr>    
 
@@ -199,7 +199,7 @@
 													<tr>
 														<td colspan="4"></td>
 														<td class="col-md-3">
-															<strong>Total Price : ₦{{ $total_price }}</strong>
+															<strong>Total Price : ${{ $total_price }}</strong>
 														</td>
 													</tr>
                                                     
