@@ -224,76 +224,91 @@ class CartController extends Controller
             $total_amount = round(Cart::total());
         }
 
-        // Create a new payment record
-        $data = new Payment();
-        $data->name = $request->name;
-        $data->email = $request->email;
-        $data->phone = $request->phone;
-        $data->address = $request->address;
-        $data->cash_delivery = $request->cash_delivery;
-        $data->total_amount = $total_amount;
-        $data->payment_type = 'Direct Payment';
+        $data = array();
+        $data['name'] = $request->name;
+        $data['email'] = $request->email;
+        $data['phone'] = $request->phone;
+        $data['address'] = $request->address;
+        $data['course_title'] = $request->course_title;
+        $cartTotal = Cart::total();
+        $carts = Cart::content();
+        
 
-        $data->invoice_no = 'EOS' . mt_rand(10000000, 99999999);
-        $data->order_date = Carbon::now()->format('d F Y');
-        $data->order_month = Carbon::now()->format('F');
-        $data->order_year = Carbon::now()->format('Y');
-        $data->status = 'pending';
-        $data->created_at = Carbon::now();
-        $data->save();
+        if ($request->cash_delivery == 'stripe') {
+            return view('frontend.payment.stripe'. compact('data','cartTotal', 'carts'));
+        }elseif($request->cash_delivery == 'handcash'){
+            
+            // Create a new payment record
+            $data = new Payment();
+            $data->name = $request->name;
+            $data->email = $request->email;
+            $data->phone = $request->phone;
+            $data->address = $request->address;
+            $data->cash_delivery = $request->cash_delivery;
+            $data->total_amount = $total_amount;
+            $data->payment_type = 'Direct Payment';
 
-        foreach($request->course_title as $key => $course_title) {
+            $data->invoice_no = 'EOS' . mt_rand(10000000, 99999999);
+            $data->order_date = Carbon::now()->format('d F Y');
+            $data->order_month = Carbon::now()->format('F');
+            $data->order_year = Carbon::now()->format('Y');
+            $data->status = 'pending';
+            $data->created_at = Carbon::now();
+            $data->save();
 
-            $existingOrder = Order::where('user_id', Auth::user()->id)->where('course_id', $request->course_id[$key])->first();
 
-            if($existingOrder){
-                $notification = array(
-                    'message' => 'You have already enrolled for this course',
-                    'alert-type' => 'error',
-                );
-                return redirect()->back()->with($notification);
-            }
+            foreach($request->course_title as $key => $course_title) {
 
-            $order = new Order();
-            $order->payment_id = $data->id;
-            $order->user_id = Auth::user()->id;
-            $order->course_id = $request->course_id[$key];
-            $order->instructor_id = $request->instructor_id[$key];
-            $order->course_title = $course_title;
-            $order->price = $request->price[$key];
-            $order->save();
+                $existingOrder = Order::where('user_id', Auth::user()->id)->where('course_id', $request->course_id[$key])->first();
 
-        } // End Foreach 
+                if($existingOrder){
+                    $notification = array(
+                        'message' => 'You have already enrolled for this course',
+                        'alert-type' => 'error',
+                    );
+                    return redirect()->back()->with($notification);
+                }
 
-        $request->session()->forget('cart');
+                $order = new Order();
+                $order->payment_id = $data->id;
+                $order->user_id = Auth::user()->id;
+                $order->course_id = $request->course_id[$key];
+                $order->instructor_id = $request->instructor_id[$key];
+                $order->course_title = $course_title;
+                $order->price = $request->price[$key];
+                $order->save();
+
+            } // End Foreach 
+
+            $request->session()->forget('cart');
 
         
 
-        //Start Send Email to student after purchasing course
-        $paymentId = $data->id;
-        $sendmail = Payment::find($paymentId);
+            //Start Send Email to student after purchasing course
+            $paymentId = $data->id;
+            $sendmail = Payment::find($paymentId);
 
-        $data = [
-            'invoice_no' => $sendmail->invoice_no,
-            'amount' => $total_amount,
-            'name' => $sendmail->name,
-            'email' => $sendmail->email,
-        ];
+            $data = [
+                'invoice_no' => $sendmail->invoice_no,
+                'amount' => $total_amount,
+                'name' => $sendmail->name,
+                'email' => $sendmail->email,
+            ];
 
-        Mail::to($request->email)->send(new OrderConfirm($data));
-        //End Send Email to student after purchasing course
+            Mail::to($request->email)->send(new OrderConfirm($data));
+            //End Send Email to student after purchasing course
 
-
-        if ($request->cash_delivery == 'stripe'){
-            echo "stripe";
-        }else {
             $notification = array(
                 'message' => 'Cash Payment Submitted Successfully',
                 'alert-type' => 'success',
             );
             return redirect()->route('index')->with($notification);
-        }
+
+        } //End Elseif
+        
     }// End Method
+
+
 
     public function BuyToCart(Request $request, $id){
 
