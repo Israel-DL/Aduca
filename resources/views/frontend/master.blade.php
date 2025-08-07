@@ -1,5 +1,3 @@
-<!-- {{ asset('frontend/') }} -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

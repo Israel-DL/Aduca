@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 use App\Models\Payment;
-
+use Stripe;
 
 class CartController extends Controller
 {
@@ -235,7 +235,7 @@ class CartController extends Controller
         
 
         if ($request->cash_delivery == 'stripe') {
-            return view('frontend.payment.stripe'. compact('data','cartTotal', 'carts'));
+            return view('frontend.payment.stripe', compact('data','cartTotal', 'carts'));
         }elseif($request->cash_delivery == 'handcash'){
             
             // Create a new payment record
@@ -308,6 +308,67 @@ class CartController extends Controller
         
     }// End Method
 
+    public function StripeOrder(Request $request){
+
+        if(Session::has('coupon')){
+            $total_amount = Session::get('coupon')['total_amount'];
+        } else{
+            $total_amount = round(Cart::total());
+        }
+
+        \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
+
+        $token = $_POST['stripeToken'];
+
+        $charge = \Stripe\Charge::create([
+            'amount' => $total_amount*100,
+            'currency' => 'usd',
+            'description' => 'Aduca LMS',
+            'source' => $token,
+            'metadata' => ['order_id' => '3434'],
+        ]);
+
+        $order_id = Payment::insertGetId([
+
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'total_amount' => $total_amount,
+            'payment_type' => 'Stripe',
+            'invoice_no' => 'EOS' . mt_rand(10000000, 99999999),
+            'order_date' => Carbon::now()->format('d F Y'),
+            'order_month' => Carbon::now()->format('F'),
+            'order_year' => Carbon::now()->format('Y'),
+            'status' => 'pending',
+            'created_at' => Carbon::now(),
+        ]);
+
+        $carts = Cart::content();
+        foreach ($carts as $cart) {
+            Order::insert([
+                'payment_id' => $order_id,
+                'user_id' => Auth::user()->id,
+                'course_id' => $cart->id,
+                'instructor_id' => $cart->options->instructor,
+                'course_title' => $cart->options->name,
+                'price' => $cart->price,
+            ]);
+        }//End ForEach
+
+        if(Session::has('coupon')){
+            Session::forget('coupon');
+        }
+        Cart::destroy();
+
+        $notification = array(
+                'message' => 'Stripe Payment Submitted Successfully',
+                'alert-type' => 'success',
+            );
+        return redirect()->route('index')->with($notification);
+
+    }// End Method
+
 
 
     public function BuyToCart(Request $request, $id){
@@ -357,5 +418,5 @@ class CartController extends Controller
         return response()->json(['success' => 'Course successfully added to cart']);
 
 
-    }
+    }// Ene Method
 }
