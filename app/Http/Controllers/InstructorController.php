@@ -21,7 +21,12 @@ class InstructorController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/instructor/login');
+        $notification = array(
+            'message' => 'Come Back soon',
+            'alert-type' => 'success',
+        );
+
+        return redirect('/instructor/login')->with($notification);
     }//End Method  
 
     public function InstructorLogin(Request $request){
