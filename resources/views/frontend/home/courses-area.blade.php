@@ -68,20 +68,59 @@
                                         
                                     </div>
                                 </div><!-- end card-image -->
+
+
+                                @php
+                                    $reviewcount = App\Models\Review::where('course_id', $course->id)->where('status', 1)->latest()->get();
+                                    $average_rev = App\Models\Review::where('course_id', $course->id)->where('status', 1)->avg('rating');
+                                @endphp
+
                                 <div class="card-body">
                                     <h6 class="ribbon ribbon-blue-bg fs-14 mb-3">{{ $course->label }}</h6>
                                     <h5 class="card-title"><a href="{{ url('course/details/'.$course->id.'/'.$course->course_name_slug) }}">{{ $course->course_name }}</a></h5>
                                     <p class="card-text"><a href="{{ route('instructor.details', $course->instructor_id) }}">{{ $course['user']['name'] }}</a></p>
                                     <div class="rating-wrap d-flex align-items-center py-2">
                                         <div class="review-stars">
-                                            <span class="rating-number">4.4</span>
-                                            <span class="la la-star"></span>
-                                            <span class="la la-star"></span>
-                                            <span class="la la-star"></span>
-                                            <span class="la la-star"></span>
-                                            <span class="la la-star-o"></span>
+                                            <span class="rating-number">{{ round($average_rev,1) }}</span>
+                                            @if ($average_rev == 0)
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
+                                            @elseif ($average_rev == 1 || $average_rev < 2)
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
+                                            @elseif ($average_rev == 2 || $average_rev < 3)
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
+                                            @elseif ($average_rev == 3 || $average_rev < 4)
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
+                                            @elseif ($average_rev == 4 || $average_rev < 5)
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star-o"></span>
+                                            @elseif ($average_rev == 5 || $average_rev < 5)
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                            <span class="la la-star"></span>    
+                                            @endif
                                         </div>
-                                        <span class="rating-total pl-1">(20,230)</span>
+                                        <span class="rating-total pl-1">({{ count($reviewcount) }} ratings)</span>
                                     </div><!-- end rating-wrap -->
                                     <div class="d-flex justify-content-between align-items-center">
 

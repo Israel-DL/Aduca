@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -282,6 +283,7 @@ Route::post('/payment', [CartController::class, 'Payment'])->name('payment');
 
 Route::post('/stripe_order', [CartController::class, 'StripeOrder'])->name('stripe_order');
 
+Route::post('/store/review', [ReviewController::class, 'StoreReview'])->name('store.review');
 
 
 
