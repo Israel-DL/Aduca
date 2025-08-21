@@ -102,6 +102,18 @@
 					<a class="has-arrow" href="javascript:;">
 						<div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
 						</div>
+						<div class="menu-title">Manage Course Reviews</div>
+					</a>
+					<ul>
+						<li> <a href="{{ route('admin.pending.review') }}"><i class='bx bx-radio-circle'></i>Pending Reviews</a></li>
+						<li> <a href="{{ route('admin.approved.review') }}"><i class='bx bx-radio-circle'></i>Approved Reviews</a></li>
+					</ul>
+				</li>
+
+				<li>
+					<a class="has-arrow" href="javascript:;">
+						<div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+						</div>
 						<div class="menu-title">Manage Settings</div>
 					</a>
 					<ul>
