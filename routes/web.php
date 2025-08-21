@@ -222,7 +222,7 @@ Route::middleware(['auth','roles:instructor'])->group(function(){
         Route::post('/instructor/question/reply', 'InstructorQuestionReplay')->name('instructor.question.reply');
     });
 
-    //Instructor Coupons All Route   admin.pending.review
+    //Instructor Coupons All Route   
     Route::controller(CouponController::class)->group(function(){
         Route::get('/instructor/all/coupon', 'InstructorAllCoupon')->name('instructor.all.coupon');
         Route::get('/instructor/add/coupon', 'InstructorAddCoupon')->name('instructor.add.coupon');
@@ -230,6 +230,11 @@ Route::middleware(['auth','roles:instructor'])->group(function(){
         Route::get('/instructor/edit/coupon/{id}', 'InstructorEditCoupon')->name('instructor.edit.coupon');
         Route::post('/instructor/update/coupon', 'InstructorUpdateCoupon')->name('instructor.update.coupon');
         Route::get('/instructor/delete/coupon/{id}', 'InstructorDeleteCoupon')->name('instructor.delete.coupon');
+    });
+
+    //Instructor Review All Route   
+    Route::controller(ReviewController::class)->group(function(){
+        Route::get('/instructor/all/review', 'InstructorAllReview')->name('instructor.all.review');
     });
     
 
