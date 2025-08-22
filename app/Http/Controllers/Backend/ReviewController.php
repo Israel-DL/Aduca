@@ -25,7 +25,7 @@ class ReviewController extends Controller
             'user_id' => Auth::id(),
             'comment' => $request->comment,
             'rating' => $request->rate,
-            'instructor_id' => $request->$instructor,
+            'instructor_id' => $instructor,
             'created_at' => Carbon::now(),
         ]);
 
@@ -59,7 +59,6 @@ class ReviewController extends Controller
         $review = Review::where('status', 1)->orderBy('id', 'DESC')->get();
         return view('admin.backend.review.approved_review', compact('review'));   
     }
-
     public function InstructorAllReview(){
         $id = Auth::user()->id;
         $review = Review::where('instructor_id',$id)->where('status',1)->orderBy('id','DESC')->get();

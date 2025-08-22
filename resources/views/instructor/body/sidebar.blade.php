@@ -89,14 +89,15 @@
 					</ul>
 				</li>
 
+
 				<li>
 					<a class="has-arrow" href="javascript:;">
 						<div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
 						</div>
-						<div class="menu-title">Manage Course Reviews</div>
+						<div class="menu-title">Manage Course Review</div>
 					</a>
 					<ul>
-						<li> <a href="{{ route('instructor.all.review') }}"><i class='bx bx-radio-circle'></i>All Reviews</a>
+						<li> <a href="{{ route('instructor.all.review') }}"><i class='bx bx-radio-circle'></i>All Review</a>
 						</li>
 						
 					</ul>
