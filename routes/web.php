@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\ActiveUserController;
+use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -150,6 +151,16 @@ Route::middleware(['auth','roles:admin'])->group(function(){
     Route::controller(ActiveUserController::class)->group(function(){
         Route::get('/admin/all/user', 'AdminAllUser')->name('admin.all.user');
         Route::get('/admin/all/instructor', 'AdminAllInstructor')->name('admin.all.instructor');
+    });
+
+    //Admin All User and Instrutor Routes  
+    Route::controller(BlogController::class)->group(function(){
+        Route::get('/admin/blog/category', 'AdminBlogCategory')->name('admin.blog.category');
+        Route::post('/blog/category/store', 'BlogCategoryStore')->name('blog.category.store');
+        Route::get('/edit/blog/category/{id}', 'EditBlogCategory');
+        Route::post('/blog/category/update', 'BlogCategoryUpdate')->name('blog.category.update');
+        Route::get('/delete/blog/category/{id}', 'DeleteBlogCategory')->name('delete.blog.category');
+        
     });
 
     
