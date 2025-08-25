@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\ActiveUserController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -143,6 +144,12 @@ Route::middleware(['auth','roles:admin'])->group(function(){
         Route::get('/admin/pending/review', 'AdminPendingReview')->name('admin.pending.review');
         Route::post('/update/review/status', 'UpdateReviewStatus')->name('update.review.status');
         Route::get('/admin/approved/review', 'AdminApprovedReview')->name('admin.approved.review');
+    });
+
+    //Admin All User and Instrutor Routes  
+    Route::controller(ActiveUserController::class)->group(function(){
+        Route::get('/admin/all/user', 'AdminAllUser')->name('admin.all.user');
+        Route::get('/admin/all/instructor', 'AdminAllInstructor')->name('admin.all.instructor');
     });
 
     
