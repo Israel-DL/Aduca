@@ -12,6 +12,7 @@
 	
 	<meta name="csrf_token" content="{{ csrf_token() }}">
 	
+	<link href="{{asset ('backend/assets/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet" />
 	<!--plugins-->
 	<link href="{{asset ('backend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet"/>
 	<link href="{{asset ('backend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
@@ -36,6 +37,12 @@
 
 	<!-- Toaster -->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
+	{{-- <script src="https://cdn.tiny.cloud/1/g8h4e0vcwmgbwqgky5uib09vca5luj6ns027wba6e11goojc/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script> --}}
+
+	<!-- Place the first <script> tag in your HTML's <head> -->
+	<script src="https://cdn.tiny.cloud/1/g8h4e0vcwmgbwqgky5uib09vca5luj6ns027wba6e11goojc/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
+
 
 	<title>Admin Dashboard</title>
 </head>
@@ -81,6 +88,8 @@
     <script src="{{asset ('backend/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
 	<script src="{{asset ('backend/assets/plugins/chartjs/js/chart.js') }}"></script>
 	<script src="{{asset ('backend/assets/js/index.js') }}"></script>
+
+	<script src="{{asset ('backend/assets/plugins/input-tags/js/tagsinput.js') }}"></script>
 	<!--app JS-->
 	<script src="{{asset ('backend/assets/js/app.js') }}"></script>
 
@@ -126,6 +135,16 @@
  }
  @endif 
 </script>
+
+<!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+  });
+</script>
+
 
 
 </body>

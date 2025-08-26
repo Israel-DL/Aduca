@@ -153,14 +153,23 @@ Route::middleware(['auth','roles:admin'])->group(function(){
         Route::get('/admin/all/instructor', 'AdminAllInstructor')->name('admin.all.instructor');
     });
 
-    //Admin All User and Instrutor Routes  
+    //Admin Blog Category All Routes 
     Route::controller(BlogController::class)->group(function(){
         Route::get('/admin/blog/category', 'AdminBlogCategory')->name('admin.blog.category');
         Route::post('/blog/category/store', 'BlogCategoryStore')->name('blog.category.store');
         Route::get('/edit/blog/category/{id}', 'EditBlogCategory');
         Route::post('/blog/category/update', 'BlogCategoryUpdate')->name('blog.category.update');
         Route::get('/delete/blog/category/{id}', 'DeleteBlogCategory')->name('delete.blog.category');
-        
+    });
+
+    //Admin Blog Post All Routes 
+    Route::controller(BlogController::class)->group(function(){
+        Route::get('/admin/blog/post', 'AdminBlogPost')->name('admin.blog.post');
+        Route::get('/add/blog/post', 'AddBlogPost')->name('add.blog.post');
+        Route::post('/store/blog/post', 'StoreBlogPost')->name('store.blog.post');
+        Route::get('/edit/blog/post/{id}', 'EditBlogPost')->name('edit.blog.post');
+        Route::post('/update/blog/post', 'UpdateBlogPost')->name('update.blog.post');
+        Route::get('/delete/blog/post/{id}', 'DeleteBlogPost')->name('delete.blog.post');
     });
 
     
