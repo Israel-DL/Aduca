@@ -315,7 +315,7 @@ Route::get('/coupon_calculation', [CartController::class, 'CouponCalculation']);
 Route::get('/coupon-remove', [CartController::class, 'CouponRemove']);
 
 
-//// Checkout Page Route /////
+//// Checkout Page Route ///// mark-notification-as-read
 Route::get('/checkout', [CartController::class, 'CheckoutCreate'])->name('checkout');
 
 Route::post('/payment', [CartController::class, 'Payment'])->name('payment');
@@ -329,6 +329,8 @@ Route::get('/blog/detials/{slug}', [BlogController::class, 'BlogDetails']);
 Route::get('/blog/cat/list/{id}', [BlogController::class, 'BlogCatList']);
 
 Route::get('/blog', [BlogController::class, 'Blog'])->name('blog');
+
+Route::post('/mark-notification-as-read/{notification}', [CartController::class, 'MarkAsRead']);
 
 
 

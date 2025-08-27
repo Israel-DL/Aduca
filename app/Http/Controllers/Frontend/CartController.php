@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 use App\Models\Payment;
 use Stripe;
+use App\Models\User;
+use App\Notifications\OrderComplete;
+use Illuminate\Support\Facades\Notification;
 
 class CartController extends Controller
 {
@@ -246,6 +249,8 @@ class CartController extends Controller
 
     public function Payment(Request $request){
 
+        $user = User::where('role','instructor')->get();
+
         if(Session::has('coupon')){
             $total_amount = Session::get('coupon')['total_amount'];
         } else{
@@ -325,6 +330,9 @@ class CartController extends Controller
 
             Mail::to($request->email)->send(new OrderConfirm($data));
             //End Send Email to student after purchasing course
+
+            //Send Notifications
+            Notification::send($user, new OrderComplete($request->name));
 
             $notification = array(
                 'message' => 'Cash Payment Submitted Successfully',
@@ -447,4 +455,16 @@ class CartController extends Controller
 
 
     }// Ene Method
+
+    public function MarkAsRead(Request $request, $notificationId){
+
+        $user = Auth::user();
+        $notification = $user->notifications()->where('id',$notificationId)->first();
+
+        if ($notification) {
+            # code...
+            $notification->markAsRead();
+        }
+        return response()->json(['count' => $user->unreadNotifications()->count()]);
+    }
 }
