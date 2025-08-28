@@ -2,6 +2,9 @@
 @section('home')
 
 
+@section('title')
+Login | Springtech Learning
+@endsection
 
 
 <!-- ================================

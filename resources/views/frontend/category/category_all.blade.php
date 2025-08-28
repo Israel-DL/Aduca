@@ -1,6 +1,10 @@
 @extends('frontend.master')
 @section('home')
 
+@section('title')
+{{ $category->category_name}} Category | Springtech Learning
+@endsection
+
 
 
 <!-- ================================

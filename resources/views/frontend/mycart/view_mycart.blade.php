@@ -2,6 +2,10 @@
 @section('home')
 
 
+@section('title')
+Cart | Springtech Learning
+@endsection
+
 
 <!-- ================================
     START BREADCRUMB AREA

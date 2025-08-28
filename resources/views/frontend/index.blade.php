@@ -1,6 +1,9 @@
 @extends('frontend.master')
 @section('home')
 
+@section('title')
+Springtech Learning
+@endsection
 
 <!--================================
          START HERO AREA

@@ -2,6 +2,10 @@
 @section('home')
 
 
+@section('title')
+{{ $course->course_name }} | Springtech Learning
+@endsection
+
 
 
 <!-- ================================

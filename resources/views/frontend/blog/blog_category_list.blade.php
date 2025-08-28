@@ -2,6 +2,10 @@
 @section('home')
 
 
+@section('title')
+{{ $bcatname->category_name }} | Blog Category | Springtech Learning
+@endsection
+
 
 <!-- ================================
     START BREADCRUMB AREA

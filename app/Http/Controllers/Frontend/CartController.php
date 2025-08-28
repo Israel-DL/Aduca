@@ -346,6 +346,8 @@ class CartController extends Controller
 
     public function StripeOrder(Request $request){
 
+        $user = User::where('role','instructor')->get();
+
         if(Session::has('coupon')){
             $total_amount = Session::get('coupon')['total_amount'];
         } else{
@@ -396,6 +398,9 @@ class CartController extends Controller
             Session::forget('coupon');
         }
         Cart::destroy();
+
+        //Send Notifications
+        Notification::send($user, new OrderComplete($request->name));
 
         $notification = array(
                 'message' => 'Stripe Payment Submitted Successfully',

@@ -2,6 +2,12 @@
 @section('home')
 
 
+@section('title')
+Become An Instructor | Springtech Learning
+@endsection
+
+
+
 <!-- ================================
     START BREADCRUMB AREA
 ================================= -->

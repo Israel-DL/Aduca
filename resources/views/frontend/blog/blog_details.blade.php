@@ -2,6 +2,10 @@
 @section('home')
 
 
+@section('title')
+{{ $blog->post_title }} Springtech Learning
+@endsection
+
 
 <!-- ================================
     START BREADCRUMB AREA

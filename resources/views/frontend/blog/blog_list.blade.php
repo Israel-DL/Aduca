@@ -2,6 +2,10 @@
 @section('home')
 
 
+@section('title')
+Blogs | Springtech Learning
+@endsection
+
 
 <!-- ================================
     START BREADCRUMB AREA

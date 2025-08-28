@@ -117,10 +117,17 @@ Route::middleware(['auth','roles:admin'])->group(function(){
 
     });
 
-    //Admin SMTP Settings All Route   
+    //Admin SMTP Settings All Route 
     Route::controller(SettingController::class)->group(function(){
         Route::get('/smtp/setting', 'SmtpSetting')->name('smtp.setting');
         Route::post('/update/smtp', 'UpdateSmtp')->name('update.smtp');
+    });
+
+    //Admin Site Settings All Route   
+    Route::controller(SettingController::class)->group(function(){
+        Route::get('/site/setting', 'SiteSetting')->name('site.setting');
+        Route::post('/update/site', 'UpdateSite')->name('update.site');
+
     });
 
 

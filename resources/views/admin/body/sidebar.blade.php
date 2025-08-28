@@ -141,8 +141,8 @@
 						<div class="menu-title">Manage Settings</div>
 					</a>
 					<ul>
-						<li> <a href="{{ route('smtp.setting') }}"><i class='bx bx-radio-circle'></i>Manage SMTP</a>
-						</li>
+						<li> <a href="{{ route('smtp.setting') }}"><i class='bx bx-radio-circle'></i>Manage SMTP</a> </li>
+						<li> <a href="{{ route('site.setting') }}"><i class='bx bx-radio-circle'></i>Manage Site Setting</a> </li>
 						
 					</ul>
 				</li>

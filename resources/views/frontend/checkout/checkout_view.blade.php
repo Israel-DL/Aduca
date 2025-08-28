@@ -1,6 +1,10 @@
 @extends('frontend.master')
 @section('home')
 
+@section('title')
+Checkout | Springtech Learning
+@endsection
+
 
 <!-- ================================
     START BREADCRUMB AREA

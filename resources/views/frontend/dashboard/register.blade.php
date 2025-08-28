@@ -1,6 +1,11 @@
 @extends('frontend.master')
 @section('home')
 
+@section('title')
+Register | Springtech Learning
+@endsection
+
+
 <!-- ================================
     START BREADCRUMB AREA
 ================================= -->

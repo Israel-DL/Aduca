@@ -1,7 +1,9 @@
 @extends('frontend.master')
 @section('home')
 
-
+@section('title')
+{{ $instructor->name }} | Springtech Learning
+@endsection
 
 <!-- ================================
     START BREADCRUMB AREA
