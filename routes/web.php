@@ -76,7 +76,7 @@ Route::middleware(['auth','roles:admin'])->group(function(){
 
     //Category All Route   
     Route::controller(CategoryController::class)->group(function(){
-        Route::get('/all/category', 'AllCategory')->name('all.category'); 
+        Route::get('/all/category', 'AllCategory')->name('all.category')->middleware('permission:category.all'); 
         Route::get('/add/category', 'AddCategory')->name('add.category');
         Route::post('/store/category', 'StoreCategory')->name('store.category');
         Route::get('/edit/category/{id}', 'EditCategory')->name('edit.category');
@@ -86,7 +86,7 @@ Route::middleware(['auth','roles:admin'])->group(function(){
 
     //Sub-Category All Route   
     Route::controller(CategoryController::class)->group(function(){
-        Route::get('/all/subcategory', 'AllSubCategory')->name('all.subcategory'); 
+        Route::get('/all/subcategory', 'AllSubCategory')->name('all.subcategory')->middleware('permission:subcategory.all'); 
         Route::get('/add/subcategory', 'AddSubCategory')->name('add.subcategory');
         Route::post('/store/subcategory', 'StoreSubCategory')->name('store.subcategory');
         Route::get('/edit/subcategory/{id}', 'EditSubCategory')->name('edit.subcategory');
@@ -203,7 +203,7 @@ Route::middleware(['auth','roles:admin'])->group(function(){
         Route::post('/update/roles', 'UpdateRoles')->name('update.roles');
         Route::get('/delete/roles/{id}', 'DeleteRoles')->name('delete.roles');
 
-        // Route::get('/add/roles/permission', 'AddRolesPermission')->name('add.roles.permission');
+        Route::get('/add/roles/permission', 'AddRolesPermission')->name('add.roles.permission');
         Route::post('/role/permission/store', 'RolePermissionStore')->name('role.permission.store');
         Route::get('/all/roles/permission', 'AllRolesPermission')->name('all.roles.permission');
         Route::get('/admin/edit/roles/{id}', 'AdminEditRoles')->name('admin.edit.roles');
