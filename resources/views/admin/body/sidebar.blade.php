@@ -162,42 +162,33 @@
 						<li> <a href="{{ route('all.roles') }}"><i class='bx bx-radio-circle'></i>All Roles</a>
 						</li>
 
-						<li> <a href="{{ route('add.roles.permission') }}"><i class='bx bx-radio-circle'></i>Role In Permission</a>
-						</li>
+						{{-- <li> <a href="{{ route('add.roles.permission') }}"><i class='bx bx-radio-circle'></i>Role In Permission</a>
+						</li> --}}
 
 						<li> <a href="{{ route('all.roles.permission') }}"><i class='bx bx-radio-circle'></i>All Roles In Permission</a>
 						</li>
 						
 					</ul>
 				</li>
+
+
+
+
 				<li>
 					<a class="has-arrow" href="javascript:;">
-						<div class="parent-icon"><i class="bx bx-map-alt"></i>
+						<div class="parent-icon"><i class="bx bx-line-chart"></i>
 						</div>
-						<div class="menu-title">Maps</div>
+						<div class="menu-title">Manage Admin</div>
 					</a>
 					<ul>
-						<li> <a href="map-google-maps.html"><i class='bx bx-radio-circle'></i>Google Maps</a>
-						</li>
-						<li> <a href="map-vector-maps.html"><i class='bx bx-radio-circle'></i>Vector Maps</a>
+						<li> <a href="{{ route('all.admin') }}"><i class='bx bx-radio-circle'></i>All Admin</a>
 						</li>
 					</ul>
 				</li>
 				
-				<li>
-					<a href="https://codervent.com/rocker/documentation/index.html" target="_blank">
-						<div class="parent-icon"><i class="bx bx-folder"></i>
-						</div>
-						<div class="menu-title">Documentation</div>
-					</a>
-				</li>
-				<li>
-					<a href="https://themeforest.net/user/codervent" target="_blank">
-						<div class="parent-icon"><i class="bx bx-support"></i>
-						</div>
-						<div class="menu-title">Support</div>
-					</a>
-				</li>
+				
+				
+				
 			</ul>
 			<!--end navigation-->
 		</div>
