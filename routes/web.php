@@ -20,9 +20,10 @@ use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\QuestionController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Backend\ReportController;
+use App\Http\Controllers\Backend\ChatController;
 
 // Route::get('/', function () {
-//     return view('welcome');
+//     return view('welcome'); 
 // });
 
 Route::get('/', [UserController::class, 'Index'])->name('index');
@@ -381,6 +382,8 @@ Route::get('/blog', [BlogController::class, 'Blog'])->name('blog');
 
 Route::post('/mark-notification-as-read/{notification}', [CartController::class, 'MarkAsRead']);
 
+//Chat Post Request Route
+Route::post('/send-message', [ChatController::class, 'SendMessage']);
 
 
 
