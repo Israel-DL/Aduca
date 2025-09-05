@@ -42,11 +42,11 @@
                     
                     <div class="chat-body2 clearfix">
                         <div class="header clearfix">
-                            <strong class="primary-font">{{ msg.user.name }}</strong>
-                                <small class="right text-muted">{{ dateFormat(msg.created_at) }}</small>
+                            <!-- <strong class="primary-font">{{ msg.user.name }}</strong> -->
+                            <small class="right text-white">{{ dateFormat(msg.created_at) }}</small>
                         </div>
                         
-                        <p>{{ msg.message }}</p>
+                        <p class="text-white">{{ msg.message }}</p>
                     </div>
                 </li>
 
@@ -110,6 +110,10 @@ export default {
 
     created(){
         this.getAllUser();
+
+        setInterval(() => {
+            this.userMessage(this.selectedUser);
+        },1000);
     },
 
     methods:{

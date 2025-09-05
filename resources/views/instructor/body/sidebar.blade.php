@@ -52,7 +52,7 @@
 
 				<li>
 					<a class="has-arrow" href="javascript:;">
-						<div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+						<div class="parent-icon"><i class='bx bx-basket'></i>
 						</div>
 						<div class="menu-title">Manage Orders</div>
 					</a>
@@ -65,7 +65,7 @@
 
 				<li>
 					<a class="has-arrow" href="javascript:;">
-						<div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+						<div class="parent-icon"><i class='bx bx-question-mark'></i>
 						</div>
 						<div class="menu-title">Manage Questions</div>
 					</a>
@@ -78,7 +78,7 @@
 
 				<li>
 					<a class="has-arrow" href="javascript:;">
-						<div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+						<div class="parent-icon"><i class='bx bx-smile'></i>
 						</div>
 						<div class="menu-title">Manage Coupon</div>
 					</a>
@@ -92,7 +92,7 @@
 
 				<li>
 					<a class="has-arrow" href="javascript:;">
-						<div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+						<div class="parent-icon"><i class='bx bx-star'></i>
 						</div>
 						<div class="menu-title">Manage Course Review</div>
 					</a>
@@ -105,17 +105,17 @@
 
 				<li>
 					<a class="has-arrow" href="javascript:;">
-						<div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+						<div class="parent-icon"><i class='bx bx-message'></i>
 						</div>
-						<div class="menu-title">Components</div>
+						<div class="menu-title">Manage Live Chat</div>
 					</a>
 					<ul>
-						<li> <a href="component-alerts.html"><i class='bx bx-radio-circle'></i>Alerts</a>
+						<li> <a href="{{ route('instructor.live.chat') }}"><i class='bx bx-radio-circle'></i>Live Chat</a>
 						</li>
-						<li> <a href="component-accordions.html"><i class='bx bx-radio-circle'></i>Accordions</a>
-						</li>
+						
 					</ul>
 				</li>
+
 				
 				
 				<li class="menu-label">Charts & Maps</li>
