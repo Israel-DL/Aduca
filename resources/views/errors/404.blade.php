@@ -54,8 +54,8 @@
 								<p>You have reached the edge of the universe.
 									<br>The page you requested could not be found.
 									<br>Dont'worry and return to the previous page.</p>
-								<div class="mt-5"> <a href="javascript:;" class="btn btn-primary btn-lg px-md-5 radius-30">Go Home</a>
-									<a href="javascript:;" class="btn btn-outline-dark btn-lg ms-3 px-md-5 radius-30">Back</a>
+								<div class="mt-5"> <a href="{{ url('/') }}" class="btn btn-primary btn-lg px-md-5 radius-30">Go Home</a>
+									
 								</div>
 							</div>
 						</div>
