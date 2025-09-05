@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/change/password', [UserController::class, 'UserChangePassword'])->name('user.change.password');
     Route::post('/user/password/update', [UserController::class, 'UserPasswordUpdate'])->name('user.password.update');
 
+    Route::get('/user/live/chat', [UserController::class, 'LiveChat'])->name('live.chat');
 
     //User Wishlist All Route  
     Route::controller(WishListController::class)->group(function(){
@@ -382,8 +383,12 @@ Route::get('/blog', [BlogController::class, 'Blog'])->name('blog');
 
 Route::post('/mark-notification-as-read/{notification}', [CartController::class, 'MarkAsRead']);
 
-//Chat Post Request Route
+//Chat Post Request Route 
 Route::post('/send-message', [ChatController::class, 'SendMessage']);
+
+Route::get('/user-all', [ChatController::class, 'GetAllUsers']);
+
+Route::get('/user-message/{id}', [ChatController::class, 'UserMsgById']);
 
 
 
