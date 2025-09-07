@@ -13,7 +13,7 @@
                 <h2 class="section__title fs-45 lh-55">Enhance Your Skills with <br> Best Online Courses</h2>
             </div><!-- end section-heading -->
             <div class="cat-btn-box mt-28px">
-                <a href="sign-up.html" class="btn theme-btn">Get Started <i class="la la-arrow-right icon ml-1"></i></a>
+                <a href="{{ route('register') }}" class="btn theme-btn">Get Started <i class="la la-arrow-right icon ml-1"></i></a>
             </div><!-- end cat-btn-box -->
         </div><!-- end cta-content-wrap -->
     </div><!-- end container -->

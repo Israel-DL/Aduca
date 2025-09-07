@@ -208,9 +208,9 @@
                 @endforeach
 
             </div><!-- end tab-content -->
-            <div class="more-btn-box mt-4 text-center">
+            {{-- <div class="more-btn-box mt-4 text-center">
                 <a href="course-grid.html" class="btn theme-btn">Browse all Courses <i class="la la-arrow-right icon ml-1"></i></a>
-            </div><!-- end more-btn-box -->
+            </div><!-- end more-btn-box --> --}}
         </div><!-- end container -->
     </div><!-- end card-content-wrapper -->
 </section><!-- end courses-area -->
@@ -262,7 +262,7 @@
                     <button type="submit" class="btn theme-btn flex-grow-1 mr-3" onclick="addToCart({{ $item->id }}, '{{ $item->course_name }}','{{ $item->instructor_id }}','{{ $item->course_name_slug }}' )" ><i class="la la-shopping-cart mr-1 fs-18"></i>Add to Cart</button>
 
 
-                    <div class="icon-element icon-element-sm shadow-sm cursor-pointer" title="Add to Wishlist"><i class="la la-heart-o"></i></div>
+                    {{-- <div class="icon-element icon-element-sm shadow-sm cursor-pointer" title="Add to Wishlist"><i class="la la-heart-o"></i></div> --}}
                 </div>
             </div>
         </div><!-- end card -->

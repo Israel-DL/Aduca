@@ -1,4 +1,4 @@
-<section class="subscriber-area pt-60px pb-60px bg-gray position-relative overflow-hidden">
+{{-- <section class="subscriber-area pt-60px pb-60px bg-gray position-relative overflow-hidden">
     <span class="stroke-shape stroke-shape-1"></span>
     <span class="stroke-shape stroke-shape-2"></span>
     <span class="stroke-shape stroke-shape-3"></span>
@@ -29,4 +29,4 @@
             </div><!-- end col-lg-6 -->
         </div><!-- end row -->
     </div><!-- end container -->
-</section><!-- end subscriber-area -->
+</section><!-- end subscriber-area --> --}}

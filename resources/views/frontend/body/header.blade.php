@@ -126,20 +126,20 @@
                                             <li><a href="home-4.html">Home four</a></li>
                                         </ul> --}}
                                     </li>
-                                    <li>
+                                    {{-- <li>
                                         <a href="#">courses <i class="la la-angle-down fs-12"></i></a>
                                         <ul class="dropdown-menu-item">
                                             <li><a href="course-grid.html">course grid</a></li>
-                                            {{-- <li><a href="course-list.html">course list</a></li>
+                                            <li><a href="course-list.html">course list</a></li>
                                             <li><a href="course-grid-left-sidebar.html">grid left sidebar</a></li>
                                             <li><a href="course-grid-right-sidebar.html">grid right sidebar</a></li>
                                             <li><a href="course-list-left-sidebar.html">list left sidebar <span class="ribbon ribbon-blue-bg">New</span></a></li>
                                             <li><a href="course-list-right-sidebar.html">list right sidebar <span class="ribbon ribbon-blue-bg">New</span></a></li>
                                             <li><a href="course-details.html">course details</a></li>
                                             <li><a href="lesson-details.html">lesson details</a></li>
-                                            <li><a href="my-courses.html">My courses</a></li> --}}
+                                            <li><a href="my-courses.html">My courses</a></li>
                                         </ul>
-                                    </li>
+                                    </li> --}}
                                     {{-- <li>
                                         <a href="#">Student <i class="la la-angle-down fs-12"></i></a>
                                         <ul class="dropdown-menu-item">
@@ -232,7 +232,7 @@
                                 </ul>
                             </div><!-- end shop-cart -->
                             <div class="nav-right-button">
-                                <a href="admission.html" class="btn theme-btn d-none d-lg-inline-block"><i class="la la-user-plus mr-1"></i> Admission</a>
+                                <a href="{{ route('become.instructor') }}" class="btn theme-btn d-none d-lg-inline-block"><i class="la la-user-plus mr-1"></i> Become an Instructor</a>
                             </div><!-- end nav-right-button -->
                         </div><!-- end menu-wrapper -->
                     </div><!-- end col-lg-10 -->

@@ -3,7 +3,7 @@
 
 
 @section('title')
-Cart | Springtech Learning
+Cart | Aduca Learning
 @endsection
 
 

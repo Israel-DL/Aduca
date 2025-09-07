@@ -83,7 +83,7 @@
                         </div><!-- end col-lg-4 -->
                     </div><!-- end row -->
                     <div class="btn-box">
-                        <a href="about.html" class="btn theme-btn">Learn More <i class="la la-arrow-right icon ml-1"></i></a>
+                        <a href="{{ route('register') }}" class="btn theme-btn">Get Started <i class="la la-arrow-right icon ml-1"></i></a>
                     </div><!-- end btn-box -->
                 </div><!-- end about-content -->
             </div><!-- end col-lg-6 -->
